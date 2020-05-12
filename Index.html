@@ -7,13 +7,116 @@
         <title>Train are doing choo-choo!</title>
          <meta name="description" content="Rail.">
         <link rel="stylesheet" href="main.css">
+		<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
     <body>
 <h1>Train tracking solution</h1>
 
-<embed src="music.mp3" width="70" height="45" align="left" hidden="False" autostart="False" loop="True">
+<script type="text/javascript" src="Functions.js"></script>
 
-<iframe width="825" height="650" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-8.085937500000002%2C57.961503094284794%2C51.24023437500001%2C71.07405646336098&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=5/65.321/21.577">Посмотреть более крупную карту</a></small>
 
+<div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(
+            document.getElementById('map'),
+            {center: new google.maps.LatLng(-33.91722, 151.23064), zoom: 16});
+
+        var icons = {
+          train: {
+            icon: 'train.png'
+          }
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(-33.91721, 151.22630),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91539, 151.22820),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91747, 151.22912),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91910, 151.22907),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91725, 151.23011),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91872, 151.23089),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91784, 151.23094),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91682, 151.23149),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91790, 151.23463),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91666, 151.23468),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.916988, 151.233640),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91662347903106, 151.22879464019775),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.916365282092855, 151.22937399734496),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91665018901448, 151.2282474695587),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.919543720969806, 151.23112279762267),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91608037421864, 151.23288232673644),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91851096391805, 151.2344058214569),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91818154739766, 151.2346203981781),
+            type: 'train'
+          }, {
+            position: new google.maps.LatLng(-33.91727341958453, 151.23348314155578),
+            type: 'train'
+          }
+        ];
+
+        // Create markers.
+        for (var i = 0; i < features.length; i++) {
+          var marker = new google.maps.Marker({
+            position: features[i].position,
+            icon: icons[features[i].type].icon,
+            map: map
+          });
+        };
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBty_Ly3P5yJTnroKVUU7QHiocHKmbsonA&callback=initMap">
+    </script>
+<audio controls autoplay loop>
+  <source src="music_loop.mp3" type="audio/mpeg">
+</audio>
   </body>
 </html>
