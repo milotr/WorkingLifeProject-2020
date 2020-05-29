@@ -1,26 +1,52 @@
 $.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
 function(data) {
   console.log(data);
-}
-);
+  
 
- var map;
+ });
+    var map;
       function initMap() {
         map = new google.maps.Map(
             document.getElementById('map'),
-            {center: new google.maps.LatLng(60.174570, 24.940478), zoom: 16});
+            {center: new google.maps.LatLng(60.174570, 24.940478), zoom: 7});
 
         var icons = {
           train: {
             icon: 'train.png'
           }
         };
+		
 		var audio = document.getElementById("easteregg");
 		audio.volume = 0.1;
+		  
 
-        var features = [
+ };
+$.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
+function(data) {
+    for (var i=0; i < data.length; i++){
+	  
+	  var features = [
           {
-            position: new google.maps.LatLng(61.37539, 29.309512),
+			  
+			  position: new google.maps.LatLng(console.log(data[i].location.coordinates.reverse().join(", ")));,
+            type: 'train'
+          }
+		  ];
+
+}
+ document.getElementById('map').innerHTML; 
+  
+
+ });
+		
+
+ 
+  /*   */
+
+
+       
+          
+           /* position: new google.maps.LatLng(61.37539, 29.309512),
             type: 'train'
           }, {
             position: new google.maps.LatLng(62.771929, 22.894744),
@@ -77,14 +103,17 @@ function(data) {
             position: new google.maps.LatLng(66.208089, 25.281632),
             type: 'train'
           }
-        ];
+         */
 
         // Create markers.
-        for (var i = 0; i < features.length; i++) {
+  
+
+ 
+      /*  for (var i = 0; i < features.length; i++) {
           var marker = new google.maps.Marker({
             position: features[i].position,
             icon: icons[features[i].type].icon,
             map: map
           });
         };
-      }
+      } */
