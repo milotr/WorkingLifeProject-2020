@@ -28,7 +28,7 @@ function(data) {
 	  var features = [
           {
 			  
-			  position: new google.maps.LatLng(console.log(data[i].location.coordinates.reverse().join(", ")));,
+			  position: new google.maps.LatLng(console.log(data[i].location.coordinates.reverse().join(", "))),
             type: 'train'
           }
 		  ];
