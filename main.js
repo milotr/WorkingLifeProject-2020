@@ -14,6 +14,11 @@ function(data) {
           train: {
             icon: 'train.png'
           }
+		  
+		  station: {
+            icon: 'station.png'
+          }
+		  
         };
 		
 		var audio = document.getElementById("easteregg");
