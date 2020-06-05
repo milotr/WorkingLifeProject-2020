@@ -4,13 +4,13 @@ $.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/",
 function(data) {
   console.log(data);
 console.log(data.length);
- data.length = arrLength;
-  console.log(arrLength);
+	arrLength = data.length;
+	console.log(arrLength);
   for (var i=0; i < data.length; i++){
-feature.push(data[i].location.coordinates.reverse().join(", "));
-		 console.log(i++); 
+	  feature[i] = data[i].location.coordinates.reverse().join(", ");
+};
 return feature;
-	  }
+	  
 
 		 
 
@@ -87,8 +87,7 @@ return feature;
   
         });
 				 /*var feature = JSON.parse(featur);*/
-				 		 console.log(feature); 
-      		 
+      		 		 console.log(feature); 
 	    var map;
       function initMap(feature) {
         map = new google.maps.Map(
@@ -117,6 +116,7 @@ return feature;
 			 
 	  position: new google.maps.LatLng(feature[i]),
            type: 'train'
+		   
 	  }
 		  ];
 }
