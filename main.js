@@ -1,51 +1,19 @@
+  var feature = [];
+  var arrLength = 0;
 $.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
 function(data) {
   console.log(data);
-  
+console.log(data.length);
+ data.length = arrLength;
+  console.log(arrLength);
+  for (var i=0; i < data.length; i++){
+feature.push(data[i].location.coordinates.reverse().join(", "));
+		 console.log(i++); 
+return feature;
+	  }
 
- });
-    var map;
-      function initMap() {
-        map = new google.maps.Map(
-            document.getElementById('map'),
-            {center: new google.maps.LatLng(60.174570, 24.940478), zoom: 7});
+		 
 
-        var icons = {
-          train: {
-            icon: 'train.png'
-          }
-		  
-		  station: {
-            icon: 'station.png'
-          }
-		  
-        };
-		
-		var audio = document.getElementById("easteregg");
-		audio.volume = 0.1;
-		  
-
- };
-$.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
-function(data) {
-    for (var i=0; i < data.length; i++){
-	  
-	  var features = [
-          {
-			  
-			  position: new google.maps.LatLng(console.log(data[i].location.coordinates.reverse().join(", "))),
-            type: 'train'
-          }
-		  ];
-
-}
- document.getElementById('map').innerHTML; 
-  
-
- });
-		
-
- 
   /*   */
 
 
@@ -113,12 +81,52 @@ function(data) {
         // Create markers.
   
 
+   
+
  
-      /*  for (var i = 0; i < features.length; i++) {
+  
+        });
+				 /*var feature = JSON.parse(featur);*/
+				 		 console.log(feature); 
+      		 
+	    var map;
+      function initMap(feature) {
+        map = new google.maps.Map(
+            document.getElementById('map'),
+            {center: new window.google.maps.LatLng(60.174570, 24.940478), zoom: 7});
+
+        var icons = {
+          train: {
+            icon: 'train.png'
+          }
+		  ,
+		  station: {
+            icon: 'station.png'
+          }
+		  
+        };
+		
+		var audio = document.getElementById("easteregg");
+		audio.volume = 0.1;
+		  
+
+  for (var i=0; i < arrLength; i++){
+	  
+	  var features = [
+	  {
+			 
+	  position: new google.maps.LatLng(feature[i]),
+           type: 'train'
+	  }
+		  ];
+}
+
+ document.getElementById('map').innerHTML; 
+ 
+       for (var i = 0; i < arrLength; i++) {
           var marker = new google.maps.Marker({
             position: features[i].position,
             icon: icons[features[i].type].icon,
             map: map
           });
-        };
-      } */
+		  }};
