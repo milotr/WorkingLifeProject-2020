@@ -1,15 +1,21 @@
   var feature = [];
-  var arrLength = 0;
+  var arrLength = [];
 $.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
 function(data) {
   console.log(data);
 console.log(data.length);
-	arrLength = data.length;
+	var arrLength = data.length;
 	console.log(arrLength);
-  for (var i=0; i < data.length; i++){
-	  feature[i] = data[i].location.coordinates.reverse().join(", ");
+	 for (var i=0; i < 2; i++){ [
+	  arrLength[i] = data.length
+	  ];};
+		
+  for (var i=0; i < data.length; i++){ [
+	  feature[i] = data[i].location.coordinates.reverse().join(", ")
+	  ];
 };
 return feature;
+return arrLength;
 	  
 
 		 
@@ -87,9 +93,11 @@ return feature;
   
         });
 				 /*var feature = JSON.parse(featur);*/
+				 	console.log(arrLength);
       		 		 console.log(feature); 
+
 	    var map;
-      function initMap(feature) {
+      function initMap() {
         map = new google.maps.Map(
             document.getElementById('map'),
             {center: new window.google.maps.LatLng(60.174570, 24.940478), zoom: 7});
@@ -107,6 +115,7 @@ return feature;
 		
 		var audio = document.getElementById("easteregg");
 		audio.volume = 0.1;
+		
 		  
 
   for (var i=0; i < arrLength; i++){
