@@ -1,5 +1,5 @@
   var feature = [];
-  var arrLength = [];
+  var arrLengthh = 100;
 $.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
 function(data) {
   console.log(data);
@@ -14,8 +14,11 @@ console.log(data.length);
 	  feature[i] = data[i].location.coordinates.reverse().join(", ")
 	  ];
 };
+
+var arrLengthh = JSON.parse(arrLength);
+	console.log(arrLengthh);
 return feature;
-return arrLength;
+return arrLengthh;
 	  
 
 		 
@@ -93,7 +96,7 @@ return arrLength;
   
         });
 				 /*var feature = JSON.parse(featur);*/
-				 	console.log(arrLength);
+				 	console.log(arrLengthh);
       		 		 console.log(feature); 
 
 	    var map;
@@ -118,21 +121,22 @@ return arrLength;
 		
 		  
 
-  for (var i=0; i < arrLength; i++){
-	  
+  for (var i=0; i < arrLengthh; i++){
+	  console.log(feature[i]);
 	  var features = [
 	  {
 			 
 	  position: new google.maps.LatLng(feature[i]),
            type: 'train'
 		   
-	  }
+	  },
 		  ];
+		  console.log(features);
 }
 
  document.getElementById('map').innerHTML; 
  
-       for (var i = 0; i < arrLength; i++) {
+       for (var i = 0; i < arrLengthh; i++) {
           var marker = new google.maps.Marker({
             position: features[i].position,
             icon: icons[features[i].type].icon,
