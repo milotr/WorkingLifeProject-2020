@@ -2,16 +2,17 @@
 <html>
     <head>
 		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <meta charset="utf-8">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Train are doing choo-choo!</title>
         <meta name="description" content="Rail.">
         <link rel="stylesheet" href="main.css">	
 		<script type="text/javascript" src="main.js"></script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBty_Ly3P5yJTnroKVUU7QHiocHKmbsonA&callback=initMap"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBty_Ly3P5yJTnroKVUU7QHiocHKmbsonA&libraries=places&callback=initMap"></script>
   </head>
     <body>
-<div id="map" onload = 'initMap()'></div>
+<div id="map"></div>
 <audio controls autoplay hidden loop id="easteregg">
   <source src="music_loop.mp3" type="audio/mpeg">
 </audio>

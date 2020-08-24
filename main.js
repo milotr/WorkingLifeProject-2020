@@ -1,203 +1,45 @@
-  var feature = [];
-  var featuree = [];
-  var arrLengthh = 0;
-$.getJSON("https://rata.digitraffic.fi/api/v1/train-locations/latest/", 
-function(data) {
-  console.log(data);
-console.log(data.length);
-	arrLength = data.length;
-	console.log(arrLength);
-	 for (var i=0; i < 2; i++){ [
-	  arrLength[i] = data.length
-	  ];};
-		
-  for (var i=0; i < data.length; i++){ [
-	  feature[i] = data[i].location.coordinates.reverse().join(", ")
-	  ];
-};
-
-var arrLengthh = JSON.parse(arrLength);
-	console.log(arrLengthh);
-	featuree = feature.toString();
-return window.featuree;
-return window.arrLengthh;
-	  
-
-		 
-
-  /*   */
-
-
-       
-          
-           /* position: new google.maps.LatLng(61.37539, 29.309512),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(62.771929, 22.894744),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.695715, 26.840868),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.199636, 24.933804),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.231038, 24.971722),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(63.701013, 25.862825),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(64.897086, 28.832998),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.173351, 24.939891),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.159343, 28.644932),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.310683, 22.131629),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.463864, 23.757763),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(62.979897, 25.263258),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(62.005455, 24.481707),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.871207, 26.803074),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.946373, 27.782227),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(64.978933, 25.487888),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.964872, 25.723385),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.561487, 27.006211),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(66.208089, 25.281632),
-            type: 'train'
-          }
-         */
-
-        // Create markers.
-  
-
+function initMap() {
+  // Create the map.
+  const map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 7,
+    center: {lat: 64, lng: 26},
+  });
    
-
- 
+   // Load the train GeoJSON onto the map.
+  setInterval(map.data.loadGeoJson('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest', {idPropertyName: 'trainNumber'}), 15000);
   
-        });
-				 /*var feature = JSON.parse(featur);*/
-				 	console.log(arrLengthh);
-      		 		 console.log(featuree); 
+  var trainicon = {
+    url: 'train.png',
+};
+map.data.setStyle({
+    icon: trainicon,
+	});
 
-	    var map;
-      function initMap() {
-        map = new google.maps.Map(
-            document.getElementById('map'),
-            {center: new window.google.maps.LatLng(60.174570, 24.940478), zoom: 7});
+  
+  const apiKey = 'AIzaSyBty_Ly3P5yJTnroKVUU7QHiocHKmbsonA';
+  const infoWindow = new google.maps.InfoWindow();
+  
+  map.data.addListener('click', (event) => {
+    const trainNumber = event.feature.getProperty('trainNumber');
+    const departureDate = event.feature.getProperty('departureDate');
+    const speed = event.feature.getProperty('speed');
+    const position = event.feature.getGeometry().get();
+    const content = `
+      <h2><b>Train number:</b> ${trainNumber}</h2><p><b>Departure date:</b> ${departureDate}</p>
+      <p><b>Speed:</b> ${speed}<br/>
+    `;
 
-        var icons = {
-          train: {
-            icon: 'train.png'
-          }
-		  ,
-		  station: {
-            icon: 'station.png'
-          }
-		  
-        };
-		
-		var audio = document.getElementById("easteregg");
-		audio.volume = 0.1;
-		
-		  
 
-  for (var i=0; i < 19; i++){
-	  console.log(feature[i]);
-	  var features = [
-	  {
-			 
-			position: new google.maps.LatLng(61.37539, 29.309512),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(62.771929, 22.894744),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.695715, 26.840868),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.199636, 24.933804),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.231038, 24.971722),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(63.701013, 25.862825),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(64.897086, 28.832998),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.173351, 24.939891),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.159343, 28.644932),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.310683, 22.131629),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.463864, 23.757763),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(62.979897, 25.263258),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(62.005455, 24.481707),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.871207, 26.803074),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.946373, 27.782227),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(64.978933, 25.487888),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(60.964872, 25.723385),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(61.561487, 27.006211),
-            type: 'train'
-          }, {
-            position: new google.maps.LatLng(66.208089, 25.281632),
-            type: 'train'
-          
-		   
-	  },
-		  ];
-		  console.log(features);
+infoWindow.setContent(content);
+    infoWindow.setPosition(position);
+    infoWindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
+    infoWindow.open(map);
+  });
 }
-console.log(feature);
-console.log(feature.length);
- document.getElementById('map').innerHTML; 
+
+window.onload = function() {
+    var audio =document.getElementById("easteregg");
+    audio.volume=0.1;
+}
+
  
-       for (var i = 0; i < 19; i++) {
-          var marker = new google.maps.Marker({
-            position: features[i].position,
-            icon: icons[features[i].type].icon,
-            map: map
-          });
-		  }};
