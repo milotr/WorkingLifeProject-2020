@@ -6,7 +6,7 @@ function initMap() {
   });
    
    // Load the train GeoJSON onto the map.
-  setInterval(map.data.loadGeoJson('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest', {idPropertyName: 'trainNumber'}), 15000);
+  map.data.loadGeoJson('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest', {idPropertyName: 'trainNumber'});
   
   var trainicon = {
     url: 'train.png',
