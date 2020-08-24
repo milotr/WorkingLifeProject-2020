@@ -26,7 +26,7 @@ map.data.setStyle({
     const position = event.feature.getGeometry().get();
     const content = `
       <h2><b>Train number:</b> ${trainNumber}</h2><p><b>Departure date:</b> ${departureDate}</p>
-      <p><b>Speed:</b> ${speed}<br/>
+      <p><b>Speed:</b> ${speed} km/h<br/>
     `;
 
 
