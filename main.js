@@ -37,7 +37,7 @@ const apiKey = 'AIzaSyBty_Ly3P5yJTnroKVUU7QHiocHKmbsonA';
     const speed = event.feature.getProperty('speed');
     const position = event.feature.getGeometry().get();
 	   const content = `
-      <h2><b>Train:</b> ${trainNumber}</h2><p><b>Position:</b> ${position}</p><p><b>Departure date:</b> ${departureDate}</p>
+      <h2><b>Train:</b> ${trainNumber}</h2><p><b>Departure date:</b> ${departureDate}</p>
       <p><b>Speed:</b> ${speed} km/h<br/>
     `;
 	infoWindow.setContent(content);
