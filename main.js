@@ -19,7 +19,7 @@ features = map.data.addGeoJson(data);
 	}
 	 //map.data.loadGeoJson('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest',
 	features = map.data.addGeoJson(data);
-	},14999));
+	},149999));
 	//1000)
  var trainicon = {
     url: 'train.png',
