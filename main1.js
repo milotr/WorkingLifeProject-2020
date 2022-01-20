@@ -8,9 +8,9 @@ function initMap() {
  
 
 // Load the train GeoJSON onto the map.
-$.getJSON('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest',function (data)) {
+	$.getJSON('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest',function (data)) {
 	features = map.data.addGeoJson(data);
-  google.maps.event.addDomListener(document.getElementById('map'), 'load', setInterval(function () {
+	google.maps.event.addDomListener(document.getElementById('map'), 'load', setInterval(function () {
 	map.data.setStyle({
     icon: trainicon,
 	animation: google.maps.Animation.DROP,
@@ -43,7 +43,10 @@ $.getJSON('https://rata.digitraffic.fi/api/v1/train-locations.geojson/latest',fu
  
 }
   
-};
+
+
+
+
 
 
  
